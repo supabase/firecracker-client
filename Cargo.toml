@@ -7,7 +7,7 @@ edition = "2024"
 version = "0.2.2"
 authors = ["ArcBox Labs <oss@arcbox.dev>", "AprilNEA <dev@aprilnea.me>"]
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/arcbox-labs/firecracker-client"
+repository = "https://github.com/arcboxlabs/firecracker-client"
 
 [workspace.dependencies]
 firecracker = { version = "0.2.2", path = "." }
