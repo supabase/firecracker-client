@@ -1,13 +1,12 @@
-use std::{env, fs, path::Path, process::Command};
+use std::{env, fs, path::Path};
 
 fn main() {
-    let spec_path = Path::new("spec/firecracker.yaml");
-    println!("cargo:rerun-if-changed={}", spec_path.display());
+    let manifest_dir = env::var("CARGO_MANIFEST_DIR").unwrap();
+    let openapi_path = Path::new(&manifest_dir).join("spec/firecracker-openapi3.json");
+    println!("cargo:rerun-if-changed={}", openapi_path.display());
 
     let out_dir = env::var("OUT_DIR").unwrap();
     let out_dir = Path::new(&out_dir);
-    let openapi_path = out_dir.join("firecracker-openapi3.json");
-    println!("cargo:rerun-if-changed={}", openapi_path.display());
 
     // Patch the spec for progenitor compatibility.
     //
